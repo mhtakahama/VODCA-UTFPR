@@ -1,10 +1,9 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%ALGORITMO PARA SALVAR FOTOS E CALIBRAR AS WEBCAMS BASEADO EM PAR DE
-%IMAGENS
+%ALGORITHM TO SAVE PHOTOS AND CALIBRATE WEBCAMS BASED ON IMAGE PAIRS
 %% Master's Degree in Mechanical Engineering - PPGEM
-%Federal University of Technology - Paraná (UTFPR)
-%Campus Cornélio Procópio
-%Laboratório Tecnológico de Vibrações Mecânicas
+%Federal University of Technology - ParanÃ¡ (UTFPR)
+%Campus CornÃ©lio ProcÃ³pio
+%LaboratÃ³rio TecnolÃ³gico de VibraÃ§Ãµes MecÃ¢nicas
 % ___  ___  _________  ________ ________  ________                 ________  ________
 % |\  \|\  \|\___   ___\\  _____\\   __  \|\   __  \               |\   ____\|\   __  \
 % \ \  \\\  \|___ \  \_\ \  \__/\ \  \|\  \ \  \|\  \  ____________\ \  \___|\ \  \|\  \
@@ -20,7 +19,7 @@
 %    \ \_______\ \__\ \ \__/ /     \ \__\    \ \__\
 %     \|_______|\|__|  \|__|/       \|__|     \|__|
 %Professor: Adailton Silva Borges
-%contributions for the elaboration of this algorithm: Marcos Hiroshi Takahama 2017 (atual), José Eduardo 2018 (atual)
+%contributions for the elaboration of this algorithm: Marcos Hiroshi Takahama 2017 (atual), JosÃ© Eduardo 2018 (atual)
 %07/02/2017
 
 close all; clear all; clc
@@ -28,14 +27,14 @@ close all; clear all; clc
 load([stereocalib_path '\' calib_name]) %load stereo parameters for webcam
 % function []=VODCA_3200_snap_2webcams()
 % global answer
-%% 0 Propriedades de aquisição da webcam
-%informações do driver
+%% 0 Propriedades de aquisiÃ§Ã£o da webcam
+%informaÃ§Ãµes do driver
 caminf  = imaqhwinfo;
 mycam = char(caminf.InstalledAdaptors()); %mostra os drivers instalados onde deve aparecer o 'winvideo'
-%armazena resoluções da webcam
-cam_number=webcamlist; %enumera webcams disponíveis
+%armazena resoluÃ§Ãµes da webcam
+cam_number=webcamlist; %enumera webcams disponÃ­veis
 
-% informação de cada cam
+% informaÃ§Ã£o de cada cam
 for i=1:length(cam_number)
     cam(i)= webcam(i);
 end
@@ -55,7 +54,7 @@ mkdir(['snapshots\2webcams\' paste_name '\snap_right']);
 loop=0;
 while loop==3
     
-    %% configurações de filmagem
+    %% configuraÃ§Ãµes de filmagem
     
     position={'northwest' 'northeast' 'southeast' 'southwest'};
     for i=1:length(cam_number)
@@ -69,7 +68,7 @@ while loop==3
     %input parameters
     prompt = {'Number cam left','Number cam right','Resolution of cam left','Resolution of cam right','number of snapshots','Exposure mode','Focus mode ','White Balance(no available)','Focus Left','Focus Right','Exposure Left','Exposure Right'};
     %     prompt = {'Resolution','Gain','Saturation','White Balance','Sharpness','Brightness','BacklightCompesation','Contrast'};
-    dlg_title = 'Configuração de vídeo';
+    dlg_title = 'ConfiguraÃ§Ã£o de vÃ­deo';
     num_lines = 1;
     defaultans = {'1','2','640x480','640x480','150','manual','manual','manual','0','0','-7','-7'};
     N=50; %this will control the width of the inputdlg
@@ -110,8 +109,8 @@ while loop==3
     prev_left=preview(cam1);
     movegui(prev_left,'northeast')
     %% check while
-    answer_loop = questdlg('Aceitar qualidade da imagem?','Configurações',...
-        'sim','não','sim');
+    answer_loop = questdlg('Aceitar qualidade da imagem?','ConfiguraÃ§Ãµes',...
+        'sim','nÃ£o','sim');
     % Handle response
     switch answer_loop
         case 'sim'
@@ -177,7 +176,7 @@ while loop==3
                 loop=1
             end
         end
-        case 'não'
+        case 'nÃ£o'
         clear prev_right prev_left cam1 cam2
         close all force
         loop = 0;
