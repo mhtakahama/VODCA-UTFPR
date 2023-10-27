@@ -1,2 +1,2 @@
-# VODCA
-Developed during my Master degree
+# Visual Object Detector by Computational Analysis - VODCA
+Developed during my Master degree 
