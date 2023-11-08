@@ -11,6 +11,7 @@ Diagram for use comming soon or you can request me.
 - Adailton Silva Borges (Professor - Supervisor)
 - Adriano Silva Borges (Professor - Supervisor)
 - Marcos Takahama (Master degree)
+- José Eduardo Simao (Master degree)
 - Jomar Berton Junior (Master degree)
 - Henrique Sidney Rissá (Master degree)
 
